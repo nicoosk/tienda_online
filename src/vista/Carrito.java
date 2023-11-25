@@ -5,10 +5,10 @@ import controlador.ControladorPaneles;
 import javax.swing.JPanel;
 
 public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
-
+    private int panelActual = 0; // 0 = Carrito; 1 = Envío; 2 = Identificación; 3 = Pago; 4 = Boleta;
     public Carrito() {
         initComponents();
-        this.agregarPrecios(new Precios().getPanel());
+        this.refrescarPanel(new Precios().getPanel(), panel_precios);
     }
 
     /**
@@ -29,9 +29,11 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         panel_precios = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btn_multifuncional = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         formulario.setBackground(new java.awt.Color(255, 255, 255));
         formulario.setPreferredSize(new java.awt.Dimension(500, 480));
@@ -70,7 +72,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                         .addGap(94, 94, 94)
                         .addComponent(codigodescuento))
                     .addGroup(formularioLayout.createSequentialGroup()
-                        .addGap(0, 80, Short.MAX_VALUE)
+                        .addGap(0, 120, Short.MAX_VALUE)
                         .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(img2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(img1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -114,10 +116,10 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
             .addGap(0, 167, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Ir al envío");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_multifuncional.setText("Ir al envío");
+        btn_multifuncional.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_multifuncionalActionPerformed(evt);
             }
         });
 
@@ -126,15 +128,15 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jButton1))
+                        .addGap(151, 151, 151)
+                        .addComponent(btn_multifuncional))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
+                        .addGap(86, 86, 86)
                         .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(1725, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +144,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                 .addGap(93, 93, 93)
                 .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btn_multifuncional)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,16 +173,33 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         // TODO add your handling code here:
     }//GEN-LAST:event_personadescuentoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.refrescarPanel(new Envio().getPanel());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_multifuncionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_multifuncionalActionPerformed
+        switch (panelActual){
+            case 0 -> {
+                this.refrescarPanel(new Envio().getPanel(), formulario);
+                panelActual = 1;
+            }
+            case 1 -> {
+                this.refrescarPanel(new Identificacion().getPanel(), formulario);
+                panelActual = 2;
+            }
+            case 2 -> {
+                this.refrescarPanel(new Pago().getPanel(), formulario);
+                panelActual = 3;
+            }
+            case 3 -> {
+                this.refrescarPanel(new Boleta().getPanel(), jPanel1);
+                panelActual = 4;
+            }
+        }
+    }//GEN-LAST:event_btn_multifuncionalActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_multifuncional;
     private javax.swing.JLabel codigodescuento;
     private javax.swing.JPanel formulario;
     private javax.swing.JLabel img1;
     private javax.swing.JLabel img2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -193,22 +212,12 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         return jPanel1;
     }
     
-    private void total(){
-    }
-
-    private void agregarPrecios(javax.swing.JPanel panel){
-        panel_precios.removeAll();
-        panel_precios.add(panel);
-        panel_precios.revalidate();
-        panel_precios.repaint();
-    }
-    
-    
     @Override
-    public void refrescarPanel(JPanel panel) {
-        formulario.removeAll();
-        formulario.add(panel);
-        formulario.revalidate();
-        formulario.repaint();
+    public void refrescarPanel(JPanel panel, JPanel bg){
+        bg.removeAll();
+        bg.add(panel);
+        bg.revalidate();
+        bg.repaint();
+        
     }
 }

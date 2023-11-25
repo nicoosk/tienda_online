@@ -134,7 +134,7 @@ public class Precios extends javax.swing.JFrame implements ControladorPaneles{
     }
 
     @Override
-    public void refrescarPanel(JPanel panel) {
-
+    public void refrescarPanel(JPanel panel, JPanel bg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -1,5 +1,8 @@
 package vista;
 
+import controlador.ControladorPaneles;
+import javax.swing.JPanel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,7 +12,7 @@ package vista;
  *
  * @author familia
  */
-public class Pago extends javax.swing.JFrame {
+public class Pago extends javax.swing.JFrame implements ControladorPaneles{
 
     /**
      * Creates new form cinco
@@ -28,12 +31,6 @@ public class Pago extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelpagar = new javax.swing.JPanel();
-        Bttonenvio = new javax.swing.JButton();
-        subtotal = new javax.swing.JLabel();
-        descuentolabel = new javax.swing.JLabel();
-        envio = new javax.swing.JLabel();
-        total = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         bttonDebito = new javax.swing.JButton();
         bttonCredito = new javax.swing.JButton();
@@ -49,66 +46,6 @@ public class Pago extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        panelpagar.setBackground(new java.awt.Color(230, 230, 235));
-
-        Bttonenvio.setBackground(new java.awt.Color(0, 0, 0));
-        Bttonenvio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        Bttonenvio.setForeground(new java.awt.Color(255, 255, 255));
-        Bttonenvio.setText("Pagar");
-        Bttonenvio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, new java.awt.Color(225, 224, 224), java.awt.Color.lightGray, java.awt.Color.lightGray));
-        Bttonenvio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BttonenvioActionPerformed(evt);
-            }
-        });
-
-        subtotal.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        subtotal.setText("Subtotal                  19.980 ");
-
-        descuentolabel.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        descuentolabel.setText("Descuento                       0");
-
-        envio.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        envio.setText("Envío                        2.990");
-
-        total.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        total.setText("Total                       22.970");
-
-        javax.swing.GroupLayout panelpagarLayout = new javax.swing.GroupLayout(panelpagar);
-        panelpagar.setLayout(panelpagarLayout);
-        panelpagarLayout.setHorizontalGroup(
-            panelpagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelpagarLayout.createSequentialGroup()
-                .addGroup(panelpagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelpagarLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(panelpagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelpagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(descuentolabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(envio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(subtotal, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))))
-                    .addGroup(panelpagarLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(Bttonenvio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        panelpagarLayout.setVerticalGroup(
-            panelpagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelpagarLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(subtotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(descuentolabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(envio)
-                .addGap(28, 28, 28)
-                .addComponent(total)
-                .addGap(41, 41, 41)
-                .addComponent(Bttonenvio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel1.setText("Pago");
@@ -175,9 +112,7 @@ public class Pago extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(panelpagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1)
@@ -189,9 +124,7 @@ public class Pago extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel1)
-                        .addGap(13, 13, 13)
-                        .addComponent(panelpagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -205,7 +138,7 @@ public class Pago extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -220,9 +153,7 @@ public class Pago extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,21 +163,14 @@ public class Pago extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BttonenvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttonenvioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BttonenvioActionPerformed
-
     private void bttonDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttonDebitoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bttonDebitoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Bttonenvio;
     private javax.swing.JButton bttonCredito;
     private javax.swing.JButton bttonDebito;
-    private javax.swing.JLabel descuentolabel;
-    private javax.swing.JLabel envio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -257,8 +181,15 @@ public class Pago extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JPanel panelpagar;
-    private javax.swing.JLabel subtotal;
-    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JPanel getPanel() {
+        return jPanel1;
+    }
+
+    @Override
+    public void refrescarPanel(JPanel panel, JPanel bg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
