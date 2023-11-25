@@ -1,7 +1,10 @@
 /dist/
 /src/Pruebas/
+<<<<<<< HEAD
 /src/Pruebas/Principal.java
 /build/classes/pruebas/
 /build/classes/pruebas/Principal.class
 /build/classes/Pruebas/
 /build/classes/Pruebas/Principal.class
+=======
+>>>>>>> b27199a9a504b448df6fde260dbe926947ac64c7

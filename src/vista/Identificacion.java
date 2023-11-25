@@ -1,5 +1,8 @@
 package vista;
 
+import controlador.ControladorPaneles;
+import javax.swing.JPanel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,7 +12,7 @@ package vista;
  *
  * @author familia
  */
-public class Identificacion extends javax.swing.JFrame {
+public class Identificacion extends javax.swing.JFrame implements ControladorPaneles{
 
     /**
      * Creates new form tres
@@ -109,7 +112,7 @@ public class Identificacion extends javax.swing.JFrame {
                             .addComponent(numText, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ratText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                            .addComponent(ratText, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(79, 79, 79)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
@@ -153,9 +156,7 @@ public class Identificacion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,4 +190,15 @@ public class Identificacion extends javax.swing.JFrame {
     private javax.swing.JTextField textname;
     private javax.swing.JTextField textsurname;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JPanel getPanel() {
+        return jPanel1;
+    }
+
+    @Override
+    public void refrescarPanel(JPanel panel, JPanel bg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

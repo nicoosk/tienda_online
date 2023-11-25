@@ -1,9 +1,6 @@
 package vista;
 
-import javax.swing.JPanel;
 import controlador.ControladorPaneles;
-import java.awt.Component;
-import java.util.ArrayList;
 
 public class Menu extends javax.swing.JFrame implements ControladorPaneles{
     
@@ -251,7 +248,7 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
     }//GEN-LAST:event_addcaButtonActionPerformed
 
     private void btncarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncarritoActionPerformed
-        this.refrescarPanel(new Carrito().getPanel());
+        this.refrescarPanel(new Carrito().getPanel(), bg);
     }//GEN-LAST:event_btncarritoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -281,7 +278,7 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
     }
     
     @Override
-    public void refrescarPanel(javax.swing.JPanel panel){
+    public void refrescarPanel(javax.swing.JPanel panel, javax.swing.JPanel bg){
         bg.removeAll();
         bg.add(panel);
         bg.revalidate();
