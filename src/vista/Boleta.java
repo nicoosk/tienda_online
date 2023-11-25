@@ -1,5 +1,8 @@
 package vista;
 
+import controlador.ControladorPaneles;
+import javax.swing.JPanel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,7 +12,7 @@ package vista;
  *
  * @author familia
  */
-public class Boleta extends javax.swing.JFrame {
+public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
 
     /**
      * Creates new form uno
@@ -40,7 +43,7 @@ public class Boleta extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        Bttonenvio = new javax.swing.JButton();
+        btn_volver = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,14 +131,14 @@ public class Boleta extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        Bttonenvio.setBackground(new java.awt.Color(0, 0, 0));
-        Bttonenvio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        Bttonenvio.setForeground(new java.awt.Color(255, 255, 255));
-        Bttonenvio.setText("Volver a la tienda");
-        Bttonenvio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, new java.awt.Color(225, 224, 224), java.awt.Color.lightGray, java.awt.Color.lightGray));
-        Bttonenvio.addActionListener(new java.awt.event.ActionListener() {
+        btn_volver.setBackground(new java.awt.Color(0, 0, 0));
+        btn_volver.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btn_volver.setForeground(new java.awt.Color(255, 255, 255));
+        btn_volver.setText("Volver a la tienda");
+        btn_volver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, new java.awt.Color(225, 224, 224), java.awt.Color.lightGray, java.awt.Color.lightGray));
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BttonenvioActionPerformed(evt);
+                btn_volverActionPerformed(evt);
             }
         });
 
@@ -159,7 +162,7 @@ public class Boleta extends javax.swing.JFrame {
                             .addComponent(panelresumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(268, 268, 268))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(Bttonenvio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(310, 310, 310)))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -172,7 +175,7 @@ public class Boleta extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(panelresumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(Bttonenvio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
         );
 
@@ -207,12 +210,12 @@ public class Boleta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BttonenvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttonenvioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BttonenvioActionPerformed
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        this.refrescarPanel(new Menu().getPanel(), jPanel2);
+    }//GEN-LAST:event_btn_volverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Bttonenvio;
+    private javax.swing.JButton btn_volver;
     private javax.swing.JLabel descuentolabel;
     private javax.swing.JLabel envio;
     private javax.swing.JLabel jLabel1;
@@ -228,4 +231,17 @@ public class Boleta extends javax.swing.JFrame {
     private javax.swing.JLabel subtotal;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JPanel getPanel() {
+        return jPanel2;
+    }
+
+    @Override
+    public void refrescarPanel(JPanel panel, JPanel bg) {
+        bg.removeAll();
+        bg.add(panel);
+        bg.revalidate();
+        bg.repaint();
+    }
 }

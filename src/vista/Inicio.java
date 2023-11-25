@@ -73,7 +73,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
-        this.refrescarPanel(new Menu().getPanel());
+        this.refrescarPanel(new Menu().getPanel(), jPanel1);
     }//GEN-LAST:event_btn_inicioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -88,10 +88,10 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
     }
     
     @Override
-    public void refrescarPanel(javax.swing.JPanel panel){
-        jPanel1.removeAll();
-        jPanel1.add(panel);
-        jPanel1.revalidate();
-        jPanel1.repaint();
+    public void refrescarPanel(javax.swing.JPanel panel, javax.swing.JPanel bg){
+        bg.removeAll();
+        bg.add(panel);
+        bg.revalidate();
+        bg.repaint();
     }
 }
