@@ -2,6 +2,8 @@ package vista;
 
 import javax.swing.JPanel;
 import controlador.ControladorPaneles;
+import java.awt.Component;
+import java.util.ArrayList;
 
 public class Menu extends javax.swing.JFrame implements ControladorPaneles{
     
@@ -278,7 +280,8 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
         return bg;
     }
     
-    private void refrescarPanel(JPanel panel){
+    @Override
+    public void refrescarPanel(javax.swing.JPanel panel){
         bg.removeAll();
         bg.add(panel);
         bg.revalidate();
