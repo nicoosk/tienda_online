@@ -1,5 +1,8 @@
 package vista;
 
+import controlador.ControladorPaneles;
+import javax.swing.JPanel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,7 +12,7 @@ package vista;
  *
  * @author familia
  */
-public class Envio extends javax.swing.JFrame {
+public class Envio extends javax.swing.JFrame implements ControladorPaneles{
 
     /**
      * Creates new form cuatro
@@ -30,12 +33,6 @@ public class Envio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         comuna = new javax.swing.JLabel();
         envioo = new javax.swing.JLabel();
-        panelpago = new javax.swing.JPanel();
-        Bttonenvio = new javax.swing.JButton();
-        subtotal = new javax.swing.JLabel();
-        descuentolabel = new javax.swing.JLabel();
-        envio = new javax.swing.JLabel();
-        total = new javax.swing.JLabel();
         textname = new javax.swing.JTextField();
         textname1 = new javax.swing.JTextField();
         textname2 = new javax.swing.JTextField();
@@ -58,66 +55,6 @@ public class Envio extends javax.swing.JFrame {
 
         envioo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         envioo.setText("Envío");
-
-        panelpago.setBackground(new java.awt.Color(230, 230, 235));
-
-        Bttonenvio.setBackground(new java.awt.Color(0, 0, 0));
-        Bttonenvio.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        Bttonenvio.setForeground(new java.awt.Color(255, 255, 255));
-        Bttonenvio.setText("Ir al pago");
-        Bttonenvio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, new java.awt.Color(225, 224, 224), java.awt.Color.lightGray, java.awt.Color.lightGray));
-        Bttonenvio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BttonenvioActionPerformed(evt);
-            }
-        });
-
-        subtotal.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        subtotal.setText("Subtotal                  19.980 ");
-
-        descuentolabel.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        descuentolabel.setText("Descuento                       0");
-
-        envio.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        envio.setText("Envío                        2.990");
-
-        total.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        total.setText("Total                       22.970");
-
-        javax.swing.GroupLayout panelpagoLayout = new javax.swing.GroupLayout(panelpago);
-        panelpago.setLayout(panelpagoLayout);
-        panelpagoLayout.setHorizontalGroup(
-            panelpagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelpagoLayout.createSequentialGroup()
-                .addGroup(panelpagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelpagoLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(panelpagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelpagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(descuentolabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(envio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(subtotal, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))))
-                    .addGroup(panelpagoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(Bttonenvio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        panelpagoLayout.setVerticalGroup(
-            panelpagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelpagoLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(subtotal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(descuentolabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(envio)
-                .addGap(28, 28, 28)
-                .addComponent(total)
-                .addGap(41, 41, 41)
-                .addComponent(Bttonenvio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
 
         textname.setBackground(new java.awt.Color(204, 204, 204));
         textname.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -207,9 +144,7 @@ public class Envio extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(textname2)))
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(panelpago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -222,51 +157,48 @@ public class Envio extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(envioo)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textname1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textname4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textname2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textname3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(panelpago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textname1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textname4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textname2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textname3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel5))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,10 +207,6 @@ public class Envio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BttonenvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttonenvioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BttonenvioActionPerformed
 
     private void textnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textnameActionPerformed
         // TODO add your handling code here:
@@ -302,10 +230,7 @@ public class Envio extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Bttonenvio;
     private javax.swing.JLabel comuna;
-    private javax.swing.JLabel descuentolabel;
-    private javax.swing.JLabel envio;
     private javax.swing.JLabel envioo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -315,13 +240,20 @@ public class Envio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel panelpago;
-    private javax.swing.JLabel subtotal;
     private javax.swing.JTextField textname;
     private javax.swing.JTextField textname1;
     private javax.swing.JTextField textname2;
     private javax.swing.JTextField textname3;
     private javax.swing.JTextField textname4;
-    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JPanel getPanel() {
+        return jPanel1;
+    }
+
+    @Override
+    public void refrescarPanel(JPanel panel) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
