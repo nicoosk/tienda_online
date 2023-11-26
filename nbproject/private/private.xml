@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/workspaceNetBeans/Tienda-online/src/controlador/ControladorPaneles.java</file>
+            <file>file:/D:/workspaceNetBeans/Tienda-online/src/vista/Inicio.java</file>
+            <file>file:/D:/workspaceNetBeans/Tienda-online/src/vista/Carrito.java</file>
+            <file>file:/D:/workspaceNetBeans/Tienda-online/src/vista/Menu.java</file>
+            <file>file:/D:/workspaceNetBeans/Tienda-online/src/vista/Precios.java</file>
+            <file>file:/D:/workspaceNetBeans/Tienda-online/src/vista/Boleta.java</file>
+        </group>
     </open-files>
 </project-private>

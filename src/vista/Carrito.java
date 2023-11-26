@@ -136,7 +136,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1725, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,9 +155,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,19 +175,19 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         switch (panelActual){
             case 0 -> {
                 this.refrescarPanel(new Envio().getPanel(), formulario);
-                panelActual = 1;
+                this.actualizarBoton(1, "Continuar a identificación");
             }
             case 1 -> {
                 this.refrescarPanel(new Identificacion().getPanel(), formulario);
-                panelActual = 2;
+                this.actualizarBoton(2, "Continuar al pago");
             }
             case 2 -> {
                 this.refrescarPanel(new Pago().getPanel(), formulario);
-                panelActual = 3;
+                this.actualizarBoton(3, "Pagar");
             }
             case 3 -> {
                 this.refrescarPanel(new Boleta().getPanel(), jPanel1);
-                panelActual = 4;
+                this.actualizarBoton(4, "Continuar a identificación");
             }
         }
     }//GEN-LAST:event_btn_multifuncionalActionPerformed
@@ -219,5 +217,10 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         bg.revalidate();
         bg.repaint();
         
+    }
+    
+    private void actualizarBoton(int indice, String mensaje){
+        panelActual = indice;
+        btn_multifuncional.setText(mensaje);
     }
 }
