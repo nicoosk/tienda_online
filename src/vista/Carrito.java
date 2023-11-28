@@ -8,10 +8,13 @@ import java.sql.Connection;
 public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
     private int panelActual = 0; // 0 = Carrito; 1 = Envío; 2 = Identificación; 3 = Pago; 4 = Boleta;
     Connection c;
+    Precios precios = new Precios();
+    Envio envio;
     public Carrito(Connection c) {
         initComponents();
-        this.refrescarPanel(new Precios().getPanel(), panel_precios);
+        this.refrescarPanel(precios.getPanel(), panel_precios);
         this.c = c;
+        envio = new Envio(c, precios);
     }
 
     /**
@@ -172,7 +175,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
     }//GEN-LAST:event_personadescuentoActionPerformed
 
     private void btn_multifuncionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_multifuncionalActionPerformed
-        Envio envio = new Envio(c);
+        
         switch (panelActual){
             case 0 -> {
                 this.refrescarPanel(envio.getPanel(), formulario);
@@ -180,9 +183,6 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                 
             }
             case 1 -> {
-                String palabra = envio.getStringDesplegableComuna();
-                //System.out.println(index);
-                System.out.println(palabra);
                 this.refrescarPanel(new Identificacion(c).getPanel(), formulario);
                 this.actualizarBoton(2, "Continuar al pago");
             }
@@ -191,7 +191,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                 this.actualizarBoton(3, "Pagar");
             }
             case 3 -> {
-                this.refrescarPanel(new Boleta(c).getPanel(), jPanel1);
+                this.refrescarPanel(new Boleta(c, precios).getPanel(), jPanel1);
                 this.actualizarBoton(4, "Continuar a identificación");
             }
         }
@@ -227,9 +227,5 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
     private void actualizarBoton(int indice, String mensaje){
         panelActual = indice;
         btn_multifuncional.setText(mensaje);
-    }
-    
-    private void actualizarPrecio(){
-        
     }
 }

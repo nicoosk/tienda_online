@@ -19,17 +19,23 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
     ArrayList<String> nombreComunas = new ArrayList<>();
     ArrayList<Integer> precioEnvio = new ArrayList<>();
     String selected = "";
+    int indice;
+    Precios precios;
     
-    public Envio() {
+    public Envio(Precios precios) {
         initComponents();
+        desplegableComuna.removeAllItems();
         this.listarComunas(c);
+        this.precios = precios;
         
     }
     
-    public Envio(Connection c){
+    public Envio(Connection c, Precios precios){
         initComponents();
+        desplegableComuna.removeAllItems();
         this.listarComunas(c);
         this.c = c;
+        this.precios = precios;
     }
 
     public ArrayList<String> getNombreComunas() {
@@ -58,6 +64,14 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
 
     public void setSelectedDesplegableComuna(String selected) {
         this.selected = selected;
+    }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
     }
     
     
@@ -148,13 +162,18 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         desplegableComuna.setBackground(new java.awt.Color(204, 204, 204));
         desplegableComuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         desplegableComuna.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        desplegableComuna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                desplegableComunaMouseClicked(evt);
+            }
+        });
         desplegableComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 desplegableComunaActionPerformed(evt);
             }
         });
 
-        btn_actualizar.setText("Actualizar");
+        btn_actualizar.setText("Actualizar selección");
         btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_actualizarActionPerformed(evt);
@@ -256,9 +275,16 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         // TODO add your handling code here:
     }//GEN-LAST:event_desplegableComunaActionPerformed
 
+    private void desplegableComunaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desplegableComunaMouseClicked
+        
+    }//GEN-LAST:event_desplegableComunaMouseClicked
+
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        String palabra = desplegableComuna.getSelectedItem().toString();
-        setSelectedDesplegableComuna(palabra);
+        this.setDatosComunas();
+        System.out.println("Comuna seleccionada: " + this.getStringDesplegableComuna());
+        System.out.println("Indice: " + this.getIndice());
+        this.actualizarPrecio();
+        
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
 
@@ -299,4 +325,17 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void setDatosComunas(){
+        String palabra = desplegableComuna.getSelectedItem().toString();
+        int index = desplegableComuna.getSelectedIndex();
+        setSelectedDesplegableComuna(palabra);
+        setIndice(index);
+    }
+    
+    private void actualizarPrecio(){
+        int precio = this.getPrecioEnvio().get(this.getIndice());
+        precios.setEnvio_TXT(String.valueOf(precio));
+    }
+        
 }
