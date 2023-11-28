@@ -1,10 +1,14 @@
 package vista;
 
-import controlador.ControladorPaneles;
+import controlador.*;
 import javax.swing.JPanel;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
-
+public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
+    Connection c;
     public Inicio() {
         initComponents();
     }
@@ -21,6 +25,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btn_inicio = new javax.swing.JButton();
+        btn_comunaprueba = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -34,6 +39,13 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
             }
         });
 
+        btn_comunaprueba.setText("recuperar comunas");
+        btn_comunaprueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_comunapruebaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -44,8 +56,10 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
                         .addGap(272, 272, 272)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(382, 382, 382)
-                        .addComponent(btn_inicio)))
+                        .addGap(379, 379, 379)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_comunaprueba)
+                            .addComponent(btn_inicio))))
                 .addContainerGap(294, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -55,7 +69,9 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
                 .addComponent(jLabel1)
                 .addGap(60, 60, 60)
                 .addComponent(btn_inicio)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(btn_comunaprueba)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,10 +89,26 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
-        this.refrescarPanel(new Menu().getPanel(), jPanel1);
+        try {
+            c = conectar();
+            //this.refrescarPanel(new Menu(c).getPanel(), jPanel1);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+        
     }//GEN-LAST:event_btn_inicioActionPerformed
 
+    private void btn_comunapruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comunapruebaActionPerformed
+        try {
+            new Sentencias().recuperarComunas(c);
+        } catch (SQLException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_comunapruebaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_comunaprueba;
     private javax.swing.JButton btn_inicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -86,12 +118,20 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles{
     public JPanel getPanel() {
         return jPanel1;
     }
-    
+
     @Override
-    public void refrescarPanel(javax.swing.JPanel panel, javax.swing.JPanel bg){
+    public void refrescarPanel(javax.swing.JPanel panel, javax.swing.JPanel bg) {
         bg.removeAll();
         bg.add(panel);
         bg.revalidate();
         bg.repaint();
+    }
+
+    private Connection conectar() throws SQLException {
+        Conexion c = new Conexion();
+        c.setUrl("jdbc:mysql://localhost:3306/prueba1");
+        c.setUser("root");
+        c.setPass("");
+        return c.getConnection();
     }
 }

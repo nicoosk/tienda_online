@@ -1,11 +1,14 @@
 package vista;
 
 import controlador.ControladorPaneles;
+import java.sql.Connection;
 
 public class Menu extends javax.swing.JFrame implements ControladorPaneles{
     
-    public Menu() {
+    Connection c;
+    public Menu(Connection c) {
         initComponents();
+        this.c = c;
     }
 
     /**
@@ -106,15 +109,19 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
         precio4.setText("precio");
 
         img4.setBackground(new java.awt.Color(102, 51, 255));
+        img4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/poleron.jpeg"))); // NOI18N
         img4.setText("imagen 4");
 
         img3.setBackground(new java.awt.Color(102, 51, 255));
+        img3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pantalon.jpeg"))); // NOI18N
         img3.setText("imagen 3");
 
         img2.setBackground(new java.awt.Color(102, 51, 255));
+        img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/poleron-claro.jpeg"))); // NOI18N
         img2.setText("imagen 2");
 
         img1.setBackground(new java.awt.Color(102, 51, 255));
+        img1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pantalon-oscuro.jpeg"))); // NOI18N
         img1.setText("imagen 1");
 
         btncarrito.setText("carrito");
@@ -132,48 +139,46 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(precio1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addcaButton))
-                            .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(precio2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addcaButton2))
-                            .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(precio1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addcaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addComponent(precio2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addcaButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 23, Short.MAX_VALUE)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                                .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)))))
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                        .addGap(0, 24, Short.MAX_VALUE)
-                        .addComponent(img3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(img3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                         .addGap(31, 31, 31)
-                        .addComponent(img4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85))
+                        .addComponent(img4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bgLayout.createSequentialGroup()
-                                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(bgLayout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(addcaButton3))
-                                    .addComponent(precio3))
-                                .addGap(44, 44, 44)
-                                .addComponent(precio4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(addcaButton4)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(btncarrito)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BttonCart)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(34, 34, 34)
+                                .addComponent(addcaButton3))
+                            .addComponent(precio3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addComponent(precio4)
+                        .addGap(18, 18, 18)
+                        .addComponent(addcaButton4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btncarrito)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BttonCart)))
+                .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(bgLayout.createSequentialGroup()
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
@@ -248,7 +253,7 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
     }//GEN-LAST:event_addcaButtonActionPerformed
 
     private void btncarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncarritoActionPerformed
-        this.refrescarPanel(new Carrito().getPanel(), bg);
+        this.refrescarPanel(new Carrito(c).getPanel(), bg);
     }//GEN-LAST:event_btncarritoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

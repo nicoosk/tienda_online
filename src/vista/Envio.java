@@ -1,6 +1,10 @@
 package vista;
 
-import controlador.ControladorPaneles;
+import controlador.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /*
@@ -13,12 +17,15 @@ import javax.swing.JPanel;
  * @author familia
  */
 public class Envio extends javax.swing.JFrame implements ControladorPaneles{
-
-    /**
-     * Creates new form cuatro
-     */
+    Connection c;
+    
     public Envio() {
         initComponents();
+    }
+    
+    public Envio(Connection c){
+        initComponents();
+        this.c = c;
     }
 
     /**
@@ -142,9 +149,11 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
                                 .addGap(58, 58, 58)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
-                                    .addComponent(textname4, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(textname2)))
+                                    .addComponent(textname4)
+                                    .addComponent(textname2)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(91, 91, 91)
+                                        .addComponent(jLabel2))))
                             .addComponent(jLabel1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -163,7 +172,7 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(envioo)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,7 +197,7 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel5))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

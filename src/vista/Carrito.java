@@ -3,12 +3,15 @@ package vista;
 
 import controlador.ControladorPaneles;
 import javax.swing.JPanel;
+import java.sql.Connection;
 
 public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
     private int panelActual = 0; // 0 = Carrito; 1 = Envío; 2 = Identificación; 3 = Pago; 4 = Boleta;
-    public Carrito() {
+    Connection c;
+    public Carrito(Connection c) {
         initComponents();
         this.refrescarPanel(new Precios().getPanel(), panel_precios);
+        this.c = c;
     }
 
     /**
@@ -178,15 +181,15 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                 this.actualizarBoton(1, "Continuar a identificación");
             }
             case 1 -> {
-                this.refrescarPanel(new Identificacion().getPanel(), formulario);
+                this.refrescarPanel(new Identificacion(c).getPanel(), formulario);
                 this.actualizarBoton(2, "Continuar al pago");
             }
             case 2 -> {
-                this.refrescarPanel(new Pago().getPanel(), formulario);
+                this.refrescarPanel(new Pago(c).getPanel(), formulario);
                 this.actualizarBoton(3, "Pagar");
             }
             case 3 -> {
-                this.refrescarPanel(new Boleta().getPanel(), jPanel1);
+                this.refrescarPanel(new Boleta(c).getPanel(), jPanel1);
                 this.actualizarBoton(4, "Continuar a identificación");
             }
         }

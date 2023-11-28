@@ -27,6 +27,40 @@ public class Conexion {
         this.pass = pass;
     }
 
+    public Connection getC() {
+        return c;
+    }
+
+    public void setC(Connection c) {
+        this.c = c;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+    
+    
+
     public Connection getConnection() throws SQLException {
         try {
             c = DriverManager.getConnection(url, user, pass);

@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorPaneles;
 import javax.swing.JPanel;
+import java.sql.Connection;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,12 +14,10 @@ import javax.swing.JPanel;
  * @author familia
  */
 public class Identificacion extends javax.swing.JFrame implements ControladorPaneles{
-
-    /**
-     * Creates new form tres
-     */
-    public Identificacion() {
+    Connection c;
+    public Identificacion(Connection c) {
         initComponents();
+        this.c = c;
     }
 
     /**

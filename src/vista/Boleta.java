@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorPaneles;
 import javax.swing.JPanel;
+import java.sql.Connection;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,12 +14,10 @@ import javax.swing.JPanel;
  * @author familia
  */
 public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
-
-    /**
-     * Creates new form uno
-     */
-    public Boleta() {
+    Connection c;
+    public Boleta(Connection c) {
         initComponents();
+        this.c = c;
     }
 
     /**
@@ -211,7 +210,7 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
-        this.refrescarPanel(new Menu().getPanel(), jPanel2);
+        this.refrescarPanel(new Menu(c).getPanel(), jPanel2);
     }//GEN-LAST:event_btn_volverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
