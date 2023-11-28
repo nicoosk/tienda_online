@@ -91,7 +91,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
         try {
             c = conectar();
-            //this.refrescarPanel(new Menu(c).getPanel(), jPanel1);
+            // this.refrescarPanel(new Menu(c).getPanel(), jPanel1);
         } catch (SQLException e) {
             System.out.println(e);
         }

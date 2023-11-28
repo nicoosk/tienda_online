@@ -28,9 +28,9 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         img2 = new javax.swing.JLabel();
         img1 = new javax.swing.JLabel();
         codigodescuento = new javax.swing.JLabel();
-        personadescuento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        personadescuento = new javax.swing.JTextField();
         panel_precios = new javax.swing.JPanel();
         btn_multifuncional = new javax.swing.JButton();
 
@@ -42,16 +42,20 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         formulario.setPreferredSize(new java.awt.Dimension(500, 480));
 
         img2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        img2.setText("imagen 2");
+        img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pantalon.jpeg"))); // NOI18N
         img2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         img1.setBackground(new java.awt.Color(102, 102, 102));
         img1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        img1.setText("imagen 1");
+        img1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pantalon-oscuro.jpeg"))); // NOI18N
         img1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         codigodescuento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         codigodescuento.setText("Código de descuento:");
+
+        jLabel4.setText("Pantalon talla M  $9.990");
+
+        jLabel7.setText("Pantalon talla M  $9.990");
 
         personadescuento.setBackground(new java.awt.Color(222, 222, 222));
         personadescuento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -61,51 +65,49 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
             }
         });
 
-        jLabel4.setText("Pantalon talla M  $9.990");
-
-        jLabel7.setText("Pantalon talla M  $9.990");
-
         javax.swing.GroupLayout formularioLayout = new javax.swing.GroupLayout(formulario);
         formulario.setLayout(formularioLayout);
         formularioLayout.setHorizontalGroup(
             formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formularioLayout.createSequentialGroup()
-                .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(formularioLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(codigodescuento))
-                    .addGroup(formularioLayout.createSequentialGroup()
-                        .addGap(0, 120, Short.MAX_VALUE)
-                        .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(img2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(img1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(formularioLayout.createSequentialGroup()
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formularioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(personadescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(formularioLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(formularioLayout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formularioLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(formularioLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(codigodescuento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(personadescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         formularioLayout.setVerticalGroup(
             formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formularioLayout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(41, 41, 41)
-                .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(46, 46, 46)
+                .addGap(20, 20, 20)
+                .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(img2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(formularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codigodescuento)
                     .addComponent(personadescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                .addGap(0, 27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formularioLayout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(148, 148, 148))
         );
 
         javax.swing.GroupLayout panel_preciosLayout = new javax.swing.GroupLayout(panel_precios);
