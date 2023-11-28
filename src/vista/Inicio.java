@@ -29,6 +29,8 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Tienda online");
 
@@ -91,7 +93,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
         try {
             c = conectar();
-            // this.refrescarPanel(new Menu(c).getPanel(), jPanel1);
+            this.refrescarPanel(new Menu(c).getPanel(), jPanel1);
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -100,11 +102,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
     }//GEN-LAST:event_btn_inicioActionPerformed
 
     private void btn_comunapruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comunapruebaActionPerformed
-        try {
-            new Sentencias().recuperarComunas(c);
-        } catch (SQLException ex) {
-            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_btn_comunapruebaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -12,6 +12,16 @@ public class Precios extends javax.swing.JFrame implements ControladorPaneles{
         initComponents();
     }
 
+    public String getEnvio_TXT() {
+        return envio_TXT.getText();
+    }
+
+    public void setEnvio_TXT(String envio_TXT) {
+        this.envio_TXT.setText(envio_TXT);
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

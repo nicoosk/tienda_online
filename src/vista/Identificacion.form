@@ -57,16 +57,16 @@
                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="numText" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textname" alignment="0" pref="170" max="32767" attributes="0"/>
+                              <Component id="numTeleftxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nombretxt" alignment="0" pref="170" max="32767" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ratText" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ruttxt" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Component id="textsurname" pref="170" max="32767" attributes="0"/>
-                              <Component id="correotext" alignment="0" max="32767" attributes="0"/>
+                              <Component id="apellidotxt" pref="170" max="32767" attributes="0"/>
+                              <Component id="correotxt" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -91,8 +91,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textname" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="textsurname" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="nombretxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="apellidotxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -101,13 +101,13 @@
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ratText" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="correotext" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="ruttxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="correotxt" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="numText" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="numTeleftxt" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -122,7 +122,7 @@
             <Property name="text" type="java.lang.String" value="Identificaci&#xf3;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textname">
+        <Component class="javax.swing.JTextField" name="nombretxt">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -137,7 +137,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textnameActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombretxtActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -180,7 +180,7 @@
             <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="numText">
+        <Component class="javax.swing.JTextField" name="numTeleftxt">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -195,7 +195,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="ratText">
+        <Component class="javax.swing.JTextField" name="ruttxt">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -210,7 +210,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textsurname">
+        <Component class="javax.swing.JTextField" name="apellidotxt">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -225,10 +225,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textsurnameActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="apellidotxtActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="correotext">
+        <Component class="javax.swing.JTextField" name="correotxt">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -242,6 +242,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="correotxtActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

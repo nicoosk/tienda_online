@@ -3,14 +3,12 @@ package vista;
 import controlador.*;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
 /**
  *
@@ -18,15 +16,52 @@ import javax.swing.JPanel;
  */
 public class Envio extends javax.swing.JFrame implements ControladorPaneles{
     Connection c;
+    ArrayList<String> nombreComunas = new ArrayList<>();
+    ArrayList<Integer> precioEnvio = new ArrayList<>();
+    String selected = "";
     
     public Envio() {
         initComponents();
+        this.listarComunas(c);
+        
     }
     
     public Envio(Connection c){
         initComponents();
+        this.listarComunas(c);
         this.c = c;
     }
+
+    public ArrayList<String> getNombreComunas() {
+        return nombreComunas;
+    }
+
+    public void setNombreComunas(ArrayList<String> nombreComunas) {
+        this.nombreComunas = nombreComunas;
+    }
+
+    public ArrayList<Integer> getPrecioEnvio() {
+        return precioEnvio;
+    }
+
+    public void setPrecioEnvio(ArrayList<Integer> precioEnvio) {
+        this.precioEnvio = precioEnvio;
+    }
+
+    public JComboBox<String> getDesplegableComuna() {
+        return desplegableComuna;
+    }
+
+    public String getStringDesplegableComuna() {
+        return selected;
+    }
+
+    public void setSelectedDesplegableComuna(String selected) {
+        this.selected = selected;
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,7 +75,6 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         jPanel1 = new javax.swing.JPanel();
         comuna = new javax.swing.JLabel();
         envioo = new javax.swing.JLabel();
-        textname = new javax.swing.JTextField();
         textname1 = new javax.swing.JTextField();
         textname2 = new javax.swing.JTextField();
         textname3 = new javax.swing.JTextField();
@@ -49,9 +83,8 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        desplegableComuna = new javax.swing.JComboBox<>();
+        btn_actualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,15 +95,6 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
 
         envioo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         envioo.setText("Envío");
-
-        textname.setBackground(new java.awt.Color(204, 204, 204));
-        textname.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textname.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textnameActionPerformed(evt);
-            }
-        });
 
         textname1.setBackground(new java.awt.Color(204, 204, 204));
         textname1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -121,14 +145,21 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Destinatario");
 
-        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel5.setText("Su pedido llegará en ");
+        desplegableComuna.setBackground(new java.awt.Color(204, 204, 204));
+        desplegableComuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        desplegableComuna.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        desplegableComuna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                desplegableComunaActionPerformed(evt);
+            }
+        });
 
-        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel6.setText("días a partir del día de compra");
-
-        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel7.setText("x");
+        btn_actualizar.setText("Actualizar");
+        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_actualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -139,32 +170,24 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comuna)
-                                    .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textname1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textname3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addGap(58, 58, 58)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4)
-                                    .addComponent(textname4)
-                                    .addComponent(textname2)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(91, 91, 91)
-                                        .addComponent(jLabel2))))
-                            .addComponent(jLabel1)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(desplegableComuna, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comuna)
+                                .addComponent(textname1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(textname3, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(jLabel3))
+                            .addComponent(jLabel1))
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel4)
+                                .addComponent(textname4, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                                .addComponent(textname2))
+                            .addComponent(btn_actualizar)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(envioo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel5)
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(envioo)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -174,9 +197,11 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
                 .addComponent(envioo)
                 .addGap(24, 24, 24)
                 .addComponent(comuna, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(desplegableComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_actualizar))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -192,12 +217,7 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textname2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textname3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel5))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,10 +236,6 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textnameActionPerformed
-
     private void textname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textname1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textname1ActionPerformed
@@ -236,19 +252,26 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         // TODO add your handling code here:
     }//GEN-LAST:event_textname4ActionPerformed
 
+    private void desplegableComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desplegableComunaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_desplegableComunaActionPerformed
+
+    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+        String palabra = desplegableComuna.getSelectedItem().toString();
+        setSelectedDesplegableComuna(palabra);
+    }//GEN-LAST:event_btn_actualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_actualizar;
     private javax.swing.JLabel comuna;
+    private javax.swing.JComboBox<String> desplegableComuna;
     private javax.swing.JLabel envioo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField textname;
     private javax.swing.JTextField textname1;
     private javax.swing.JTextField textname2;
     private javax.swing.JTextField textname3;
@@ -262,5 +285,18 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
 
     @Override
     public void refrescarPanel(JPanel panel, JPanel bg) {
+    }
+    
+    private void listarComunas(Connection c){
+        try {
+            nombreComunas = new Sentencias().recuperarNombreComunas(c);
+            precioEnvio = new Sentencias().recuperarPrecioEnvio(c);
+            
+            for (String comuna: nombreComunas) {
+            desplegableComuna.addItem(comuna);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

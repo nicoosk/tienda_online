@@ -31,16 +31,16 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
 
         jPanel1 = new javax.swing.JPanel();
         identificacion = new javax.swing.JLabel();
-        textname = new javax.swing.JTextField();
+        nombretxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        numText = new javax.swing.JTextField();
-        ratText = new javax.swing.JTextField();
-        textsurname = new javax.swing.JTextField();
-        correotext = new javax.swing.JTextField();
+        numTeleftxt = new javax.swing.JTextField();
+        ruttxt = new javax.swing.JTextField();
+        apellidotxt = new javax.swing.JTextField();
+        correotxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,12 +49,12 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
         identificacion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         identificacion.setText("Identificación");
 
-        textname.setBackground(new java.awt.Color(204, 204, 204));
-        textname.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textname.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textname.addActionListener(new java.awt.event.ActionListener() {
+        nombretxt.setBackground(new java.awt.Color(204, 204, 204));
+        nombretxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        nombretxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nombretxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textnameActionPerformed(evt);
+                nombretxtActionPerformed(evt);
             }
         });
 
@@ -73,26 +73,31 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Número");
 
-        numText.setBackground(new java.awt.Color(204, 204, 204));
-        numText.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        numText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        numTeleftxt.setBackground(new java.awt.Color(204, 204, 204));
+        numTeleftxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        numTeleftxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        ratText.setBackground(new java.awt.Color(204, 204, 204));
-        ratText.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        ratText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ruttxt.setBackground(new java.awt.Color(204, 204, 204));
+        ruttxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        ruttxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        textsurname.setBackground(new java.awt.Color(204, 204, 204));
-        textsurname.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textsurname.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textsurname.addActionListener(new java.awt.event.ActionListener() {
+        apellidotxt.setBackground(new java.awt.Color(204, 204, 204));
+        apellidotxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        apellidotxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        apellidotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textsurnameActionPerformed(evt);
+                apellidotxtActionPerformed(evt);
             }
         });
 
-        correotext.setBackground(new java.awt.Color(204, 204, 204));
-        correotext.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        correotext.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        correotxt.setBackground(new java.awt.Color(204, 204, 204));
+        correotxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        correotxt.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        correotxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                correotxtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,15 +113,15 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
                     .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(numText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(numTeleftxt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nombretxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ratText, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(ruttxt, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(79, 79, 79)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
-                            .addComponent(textsurname, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(correotext))))
+                            .addComponent(apellidotxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(correotxt))))
                 .addGap(376, 376, 376))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
@@ -134,20 +139,20 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textsurname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(apellidotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ratText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(correotext, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ruttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(correotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel6)
                 .addGap(12, 12, 12)
-                .addComponent(numText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(numTeleftxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(163, 163, 163))
         );
 
@@ -167,16 +172,21 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textnameActionPerformed
+    private void nombretxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombretxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textnameActionPerformed
+    }//GEN-LAST:event_nombretxtActionPerformed
 
-    private void textsurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textsurnameActionPerformed
+    private void apellidotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidotxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textsurnameActionPerformed
+    }//GEN-LAST:event_apellidotxtActionPerformed
+
+    private void correotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correotxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_correotxtActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField correotext;
+    private javax.swing.JTextField apellidotxt;
+    private javax.swing.JTextField correotxt;
     private javax.swing.JLabel identificacion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -184,10 +194,9 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField numText;
-    private javax.swing.JTextField ratText;
-    private javax.swing.JTextField textname;
-    private javax.swing.JTextField textsurname;
+    private javax.swing.JTextField nombretxt;
+    private javax.swing.JTextField numTeleftxt;
+    private javax.swing.JTextField ruttxt;
     // End of variables declaration//GEN-END:variables
 
     @Override
