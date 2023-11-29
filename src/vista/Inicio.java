@@ -25,7 +25,6 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btn_inicio = new javax.swing.JButton();
-        btn_comunaprueba = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,13 +40,6 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
             }
         });
 
-        btn_comunaprueba.setText("recuperar comunas");
-        btn_comunaprueba.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_comunapruebaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -59,9 +51,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(379, 379, 379)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_comunaprueba)
-                            .addComponent(btn_inicio))))
+                        .addComponent(btn_inicio)))
                 .addContainerGap(294, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -71,9 +61,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
                 .addComponent(jLabel1)
                 .addGap(60, 60, 60)
                 .addComponent(btn_inicio)
-                .addGap(57, 57, 57)
-                .addComponent(btn_comunaprueba)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,12 +89,7 @@ public class Inicio extends javax.swing.JFrame implements ControladorPaneles {
         
     }//GEN-LAST:event_btn_inicioActionPerformed
 
-    private void btn_comunapruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comunapruebaActionPerformed
-        
-    }//GEN-LAST:event_btn_comunapruebaActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_comunaprueba;
     private javax.swing.JButton btn_inicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

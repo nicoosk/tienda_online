@@ -55,7 +55,7 @@ public class Sentencias extends Conexion{
     public void insertarDatosUsuario(Connection c, String nombre, String apellido, String rut, String correo, String direccion, int numeroTelefono){
         String sql = "INSERT INTO usuario(Id, Nombre, apellido, rut, direccion, correo, telefono) VALUES (?,?,?,?,?,?,?)";
         try (PreparedStatement ps = c.prepareStatement(sql)){
-            ps.setInt(1, this.generarId());
+            ps.setInt(1, 2);
             ps.setString(2, nombre);
             ps.setString(3, apellido);
             ps.setString(4, rut);
