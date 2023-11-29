@@ -213,6 +213,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                 this.compararDatosTarjeta();
                 if (sonIguales){
                     this.refrescarPanel(new Boleta(c, precios, usuario, tarjeta).getPanel(), jPanel1);
+                    new Sentencias().insertarDatosUsuario(c, usuario.getNombre(), usuario.getApellido(), usuario.getRut(), usuario.getCorreo(), usuario.getDireccion(), (int) usuario.getNumeroTelefono());
                     this.actualizarBoton(4, "Continuar a envio");
                 } else {
                     JOptionPane.showMessageDialog(this, "Hubo un error", "Error", JOptionPane.ERROR_MESSAGE);

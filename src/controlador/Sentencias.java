@@ -14,6 +14,7 @@ public class Sentencias extends Conexion{
     ArrayList<Long> numTarjeta = new ArrayList<>();
     ArrayList<Integer> cvv = new ArrayList<>();
     ArrayList<String> fechaVencimiento = new ArrayList<>();
+    int count = 0;
     
     private ArrayList<String> mostrarNombreComuna(ResultSet rs) throws SQLException{
         while (rs.next()){
@@ -52,14 +53,15 @@ public class Sentencias extends Conexion{
     }
     
     public void insertarDatosUsuario(Connection c, String nombre, String apellido, String rut, String correo, String direccion, int numeroTelefono){
-        String sql = "INSERT INTO usuario(Nombre, apellido, rut, direccion, correo, telefono) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO usuario(Id, Nombre, apellido, rut, direccion, correo, telefono) VALUES (?,?,?,?,?,?,?)";
         try (PreparedStatement ps = c.prepareStatement(sql)){
-            ps.setString(1, nombre);
-            ps.setString(2, apellido);
-            ps.setString(3, rut);
-            ps.setString(4, direccion);
-            ps.setString(5, correo);
-            ps.setInt(6, numeroTelefono);
+            ps.setInt(1, this.generarId());
+            ps.setString(2, nombre);
+            ps.setString(3, apellido);
+            ps.setString(4, rut);
+            ps.setString(5, direccion);
+            ps.setString(6, correo);
+            ps.setInt(7, numeroTelefono);
             ps.executeUpdate();
         } catch(SQLException e){
             System.out.println("Error: " + e);
@@ -123,5 +125,9 @@ public class Sentencias extends Conexion{
             cvv.add(rs.getInt("cvv"));
         }
         return cvv;
+    }
+    
+    private int generarId(){
+        return count + 1;
     }
 }

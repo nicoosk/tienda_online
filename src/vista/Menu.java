@@ -40,6 +40,7 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
         bg.setForeground(new java.awt.Color(255, 255, 255));
 
         logo.setBackground(new java.awt.Color(204, 204, 204));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconoFinal.jpeg"))); // NOI18N
         logo.setText("logo");
 
         precio1.setText("9.990");
@@ -108,44 +109,44 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(318, 318, 318)
-                .addComponent(btncarrito)
-                .addGap(29, 29, 29))
             .addGroup(bgLayout.createSequentialGroup()
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(img1))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(precio1)
-                        .addGap(18, 18, 18)
-                        .addComponent(addcaButton)
-                        .addGap(56, 56, 56)
-                        .addComponent(precio2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addcaButton2)
-                        .addGap(84, 84, 84)
-                        .addComponent(precio3)
-                        .addGap(18, 18, 18)
-                        .addComponent(addcaButton3)
-                        .addGap(55, 55, 55)
-                        .addComponent(precio4)
-                        .addGap(18, 18, 18)
-                        .addComponent(addcaButton4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(282, 282, 282)
+                        .addComponent(btncarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(bgLayout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(img1))
+                        .addGroup(bgLayout.createSequentialGroup()
+                            .addGap(44, 44, 44)
+                            .addComponent(precio1)
+                            .addGap(18, 18, 18)
+                            .addComponent(addcaButton)
+                            .addGap(56, 56, 56)
+                            .addComponent(precio2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(addcaButton2)
+                            .addGap(84, 84, 84)
+                            .addComponent(precio3)
+                            .addGap(18, 18, 18)
+                            .addComponent(addcaButton3)
+                            .addGap(55, 55, 55)
+                            .addComponent(precio4)
+                            .addGap(18, 18, 18)
+                            .addComponent(addcaButton4))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btncarrito, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(logo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                    .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(img1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -164,7 +165,7 @@ public class Menu extends javax.swing.JFrame implements ControladorPaneles{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
