@@ -2,19 +2,33 @@ package vista;
 
 
 import controlador.ControladorPaneles;
+import controlador.DatosTarjeta;
+import controlador.Sentencias;
+import controlador.Usuario;
 import javax.swing.JPanel;
 import java.sql.Connection;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
-    private int panelActual = 0; // 0 = Carrito; 1 = Envío; 2 = Identificación; 3 = Pago; 4 = Boleta;
+    private int panelActual = 0; // 0 = Carrito; 1 = Identificacion; 2 = Envio; 3 = Pago; 4 = Boleta;
     Connection c;
     Precios precios = new Precios();
     Envio envio;
+    Usuario usuario;
+    Identificacion identificacion = new Identificacion(c);
+    Pago pago = new Pago(c, usuario);
+    DatosTarjeta tarjeta = new DatosTarjeta();
+    ArrayList<Long> numTarjeta = new ArrayList<>();
+    ArrayList<String> fechaVencimiento = new ArrayList<>();
+    ArrayList<Integer> cvv = new ArrayList<>();
+    boolean sonIguales = false;
+    
     public Carrito(Connection c) {
         initComponents();
         this.refrescarPanel(precios.getPanel(), panel_precios);
         this.c = c;
-        envio = new Envio(c, precios);
+        envio = new Envio(c, precios, usuario);
     }
 
     /**
@@ -121,7 +135,7 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
             .addGap(0, 167, Short.MAX_VALUE)
         );
 
-        btn_multifuncional.setText("Ir al envío");
+        btn_multifuncional.setText("Ir a identificación");
         btn_multifuncional.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_multifuncionalActionPerformed(evt);
@@ -136,12 +150,13 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
                 .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(btn_multifuncional))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(57, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_multifuncional)
+                        .addGap(105, 105, 105))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,21 +193,30 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
         
         switch (panelActual){
             case 0 -> {
-                this.refrescarPanel(envio.getPanel(), formulario);
-                this.actualizarBoton(1, "Continuar a identificación");
+                this.refrescarPanel(identificacion.getPanel(), formulario);
+                this.actualizarBoton(1, "Continuar a envio");
                 
             }
             case 1 -> {
-                this.refrescarPanel(new Identificacion(c).getPanel(), formulario);
+                usuario = this.enviarDatosUsuarios(identificacion.getNombretxt().getText(), identificacion.getApellidotxt().getText(), identificacion.getRuttxt().getText(), identificacion.getCorreotxt().getText(), Long.parseLong(identificacion.getNumTeleftxt().getText()));
+                this.refrescarPanel(envio.getPanel(), formulario);
                 this.actualizarBoton(2, "Continuar al pago");
             }
             case 2 -> {
-                this.refrescarPanel(new Pago(c).getPanel(), formulario);
+                
+                this.enviarDatosEnvio(usuario);
+                this.refrescarPanel(pago.getPanel(), formulario);
                 this.actualizarBoton(3, "Pagar");
             }
             case 3 -> {
-                this.refrescarPanel(new Boleta(c, precios).getPanel(), jPanel1);
-                this.actualizarBoton(4, "Continuar a identificación");
+                this.guardarDatosTarjeta(Long.parseLong(pago.getNumTarjetaTXT().getText()), pago.getFechaVencimientoTXT().getText(), Integer.parseInt(pago.getCvvTXT().getText()));
+                this.compararDatosTarjeta();
+                if (sonIguales){
+                    this.refrescarPanel(new Boleta(c, precios, usuario, tarjeta).getPanel(), jPanel1);
+                    this.actualizarBoton(4, "Continuar a envio");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Hubo un error", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
     }//GEN-LAST:event_btn_multifuncionalActionPerformed
@@ -227,5 +251,53 @@ public class Carrito extends javax.swing.JFrame implements ControladorPaneles{
     private void actualizarBoton(int indice, String mensaje){
         panelActual = indice;
         btn_multifuncional.setText(mensaje);
+    }
+    
+    private Usuario enviarDatosUsuarios(String nombre, String apellido, String rut, String correo, long numeroTelefono){
+        Usuario user1 = new Usuario();
+        user1.setNombre(nombre);
+        user1.setApellido(apellido);
+        user1.setCorreo(correo);
+        user1.setRut(rut);
+        user1.setNumeroTelefono(numeroTelefono);
+        return user1;
+    }
+    
+    private Usuario enviarDatosEnvio(Usuario usuario){
+        String direccion = envio.getCalleTXT().getText() + " " + envio.getNumCasaTXT().getText() + " "+ envio.getOpcionalTXT().getText();
+        usuario.setDireccion(direccion);
+        return usuario;
+    }
+    
+    private void guardarDatosTarjeta(long numeroTarjeta, String fechaVencimiento, int cvv){
+        tarjeta.setNumeroTarjeta(numeroTarjeta);
+        tarjeta.setFechaVencimiento(fechaVencimiento);
+        tarjeta.setCvv(cvv);
+    }
+    
+    public void compararDatosTarjeta(){
+        Sentencias s = new Sentencias();
+        numTarjeta = s.recuperarNumTarjeta(c);
+        fechaVencimiento = s.recuperarFechaVen(c);
+        cvv = s.recuperarCvv(c);
+        sonIguales = this.comparacion();
+        
+    }
+    
+    private boolean comparacion(){
+        boolean flag1 = false, flag2 = false, flag3 = false;
+        for (Long numero : numTarjeta){
+            if (numero.equals(Long.valueOf(tarjeta.getNumeroTarjeta()))) flag1 = true;
+        }
+        
+        for (String fechaVen : fechaVencimiento){
+            if (fechaVen.equals(tarjeta.getFechaVencimiento())) flag2 = true;
+        }
+        
+        for (int Cvv : cvv){
+            if (Cvv == tarjeta.getCvv()) flag3 = true;
+        }
+        
+        return flag1 == flag2 == flag3;
     }
 }

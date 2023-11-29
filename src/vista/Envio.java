@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 /**
@@ -21,7 +22,7 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
     String selected = "";
     int indice;
     Precios precios;
-    
+    Usuario usuario;
     public Envio(Precios precios) {
         initComponents();
         desplegableComuna.removeAllItems();
@@ -30,12 +31,13 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         
     }
     
-    public Envio(Connection c, Precios precios){
+    public Envio(Connection c, Precios precios, Usuario usuario){
         initComponents();
         desplegableComuna.removeAllItems();
         this.listarComunas(c);
         this.c = c;
         this.precios = precios;
+        this.usuario = usuario;
     }
 
     public ArrayList<String> getNombreComunas() {
@@ -73,6 +75,30 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
     public void setIndice(int indice) {
         this.indice = indice;
     }
+
+    public JTextField getCalleTXT() {
+        return calleTXT;
+    }
+
+    public void setCalleTXT(JTextField calleTXT) {
+        this.calleTXT = calleTXT;
+    }
+
+    public JTextField getNumCasaTXT() {
+        return numCasaTXT;
+    }
+
+    public void setNumCasaTXT(JTextField numCasaTXT) {
+        this.numCasaTXT = numCasaTXT;
+    }
+
+    public JTextField getOpcionalTXT() {
+        return opcionalTXT;
+    }
+
+    public void setOpcionalTXT(JTextField opcionalTXT) {
+        this.opcionalTXT = opcionalTXT;
+    }
     
     
     
@@ -89,14 +115,12 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         jPanel1 = new javax.swing.JPanel();
         comuna = new javax.swing.JLabel();
         envioo = new javax.swing.JLabel();
-        textname1 = new javax.swing.JTextField();
-        textname2 = new javax.swing.JTextField();
-        textname3 = new javax.swing.JTextField();
-        textname4 = new javax.swing.JTextField();
+        calleTXT = new javax.swing.JTextField();
+        opcionalTXT = new javax.swing.JTextField();
+        numCasaTXT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         desplegableComuna = new javax.swing.JComboBox<>();
         btn_actualizar = new javax.swing.JButton();
 
@@ -110,40 +134,31 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         envioo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         envioo.setText("Envío");
 
-        textname1.setBackground(new java.awt.Color(204, 204, 204));
-        textname1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textname1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textname1.addActionListener(new java.awt.event.ActionListener() {
+        calleTXT.setBackground(new java.awt.Color(204, 204, 204));
+        calleTXT.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        calleTXT.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        calleTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textname1ActionPerformed(evt);
+                calleTXTActionPerformed(evt);
             }
         });
 
-        textname2.setBackground(new java.awt.Color(204, 204, 204));
-        textname2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textname2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textname2.addActionListener(new java.awt.event.ActionListener() {
+        opcionalTXT.setBackground(new java.awt.Color(204, 204, 204));
+        opcionalTXT.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        opcionalTXT.setText("opcional");
+        opcionalTXT.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        opcionalTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textname2ActionPerformed(evt);
+                opcionalTXTActionPerformed(evt);
             }
         });
 
-        textname3.setBackground(new java.awt.Color(204, 204, 204));
-        textname3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textname3.setText("opcional");
-        textname3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textname3.addActionListener(new java.awt.event.ActionListener() {
+        numCasaTXT.setBackground(new java.awt.Color(204, 204, 204));
+        numCasaTXT.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        numCasaTXT.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        numCasaTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textname3ActionPerformed(evt);
-            }
-        });
-
-        textname4.setBackground(new java.awt.Color(204, 204, 204));
-        textname4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        textname4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        textname4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textname4ActionPerformed(evt);
+                numCasaTXTActionPerformed(evt);
             }
         });
 
@@ -155,9 +170,6 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Información adicional");
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Destinatario");
 
         desplegableComuna.setBackground(new java.awt.Color(204, 204, 204));
         desplegableComuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -192,17 +204,14 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(desplegableComuna, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(comuna)
-                                .addComponent(textname1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                .addComponent(textname3, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(calleTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(opcionalTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                                 .addComponent(jLabel3))
                             .addComponent(jLabel1))
                         .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4)
-                                .addComponent(textname4, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                                .addComponent(textname2))
+                            .addComponent(numCasaTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_actualizar)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -226,16 +235,12 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
                     .addComponent(jLabel2))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textname1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textname4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(calleTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numCasaTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                .addComponent(jLabel3)
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textname2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textname3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(opcionalTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(167, Short.MAX_VALUE))
         );
 
@@ -255,21 +260,17 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textname1ActionPerformed
+    private void calleTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calleTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textname1ActionPerformed
+    }//GEN-LAST:event_calleTXTActionPerformed
 
-    private void textname2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textname2ActionPerformed
+    private void opcionalTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionalTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textname2ActionPerformed
+    }//GEN-LAST:event_opcionalTXTActionPerformed
 
-    private void textname3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textname3ActionPerformed
+    private void numCasaTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numCasaTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textname3ActionPerformed
-
-    private void textname4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textname4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textname4ActionPerformed
+    }//GEN-LAST:event_numCasaTXTActionPerformed
 
     private void desplegableComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desplegableComunaActionPerformed
         // TODO add your handling code here:
@@ -290,18 +291,16 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar;
+    private javax.swing.JTextField calleTXT;
     private javax.swing.JLabel comuna;
     private javax.swing.JComboBox<String> desplegableComuna;
     private javax.swing.JLabel envioo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField textname1;
-    private javax.swing.JTextField textname2;
-    private javax.swing.JTextField textname3;
-    private javax.swing.JTextField textname4;
+    private javax.swing.JTextField numCasaTXT;
+    private javax.swing.JTextField opcionalTXT;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -336,6 +335,8 @@ public class Envio extends javax.swing.JFrame implements ControladorPaneles{
     private void actualizarPrecio(){
         int precio = this.getPrecioEnvio().get(this.getIndice());
         precios.setEnvio_TXT(String.valueOf(precio));
+        int subtotal = 19980 + Integer.parseInt(precios.getEnvio_TXT());
+        precios.setTotal_TXT(subtotal);
     }
         
 }

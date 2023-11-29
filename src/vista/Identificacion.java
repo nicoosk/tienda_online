@@ -3,6 +3,8 @@ package vista;
 import controlador.ControladorPaneles;
 import javax.swing.JPanel;
 import java.sql.Connection;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -20,6 +22,32 @@ public class Identificacion extends javax.swing.JFrame implements ControladorPan
         this.c = c;
     }
 
+    public JTextField getApellidotxt() {
+        return apellidotxt;
+    }
+
+    public JTextField getCorreotxt() {
+        return correotxt;
+    }
+
+    public JLabel getIdentificacion() {
+        return identificacion;
+    }
+
+    public JTextField getNombretxt() {
+        return nombretxt;
+    }
+
+    public JTextField getNumTeleftxt() {
+        return numTeleftxt;
+    }
+
+    public JTextField getRuttxt() {
+        return ruttxt;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -2,6 +2,7 @@ package vista;
 
 import javax.swing.JPanel;
 import controlador.ControladorPaneles;
+import javax.swing.JLabel;
 
 public class Precios extends javax.swing.JFrame implements ControladorPaneles{
 
@@ -12,6 +13,22 @@ public class Precios extends javax.swing.JFrame implements ControladorPaneles{
         initComponents();
     }
 
+    public JLabel getSubtotal_TXT() {
+        return subtotal_TXT;
+    }
+
+    public void setSubtotal_TXT(JLabel subtotal_TXT) {
+        this.subtotal_TXT = subtotal_TXT;
+    }
+
+    public JLabel getTotal_TXT() {
+        return total_TXT;
+    }
+
+    public void setTotal_TXT(int total) {
+        this.total_TXT.setText(String.valueOf(total));
+    }
+    
     public String getEnvio_TXT() {
         return envio_TXT.getText();
     }
@@ -57,13 +74,13 @@ public class Precios extends javax.swing.JFrame implements ControladorPaneles{
         jLabel2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel2.setText("Total");
 
-        subtotal_TXT.setText("0");
+        subtotal_TXT.setText("19980");
 
         descuento_TXT.setText("0");
 
         envio_TXT.setText("0");
 
-        total_TXT.setText("0");
+        total_TXT.setText("19980");
 
         javax.swing.GroupLayout panel_preciosLayout = new javax.swing.GroupLayout(panel_precios);
         panel_precios.setLayout(panel_preciosLayout);

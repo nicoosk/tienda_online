@@ -1,8 +1,11 @@
 package vista;
 
 import controlador.ControladorPaneles;
+import controlador.DatosTarjeta;
+import controlador.Usuario;
 import javax.swing.JPanel;
 import java.sql.Connection;
+import java.util.Random;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -16,11 +19,16 @@ import java.sql.Connection;
 public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
     Connection c;
     Precios precios;
-    public Boleta(Connection c, Precios precios) {
+    Usuario usuario;
+    DatosTarjeta datosTarjeta;
+    public Boleta(Connection c, Precios precios, Usuario usuario, DatosTarjeta datosTarjeta) {
         initComponents();
         this.c = c;
         this.precios = precios;
+        this.usuario = usuario;
+        this.datosTarjeta = datosTarjeta;
         this.refrescarPanel(this.precios.getPanel(), panel_precios);
+        numOrdenTXT.setText(String.valueOf(this.ordenAleatoria()));
     }
 
     /**
@@ -38,11 +46,10 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
         panelresumen = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         panel_precios = new javax.swing.JPanel();
+        numOrdenTXT = new javax.swing.JLabel();
         btn_volver = new javax.swing.JButton();
+        mostrar_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,18 +64,10 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
         panelresumen.setBackground(new java.awt.Color(230, 230, 235));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setText("Número orden #19873");
+        jLabel2.setText("Número orden #");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("2 productos");
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Envío en  ");
-
-        jLabel6.setText("días habiles ");
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("X");
 
         javax.swing.GroupLayout panel_preciosLayout = new javax.swing.GroupLayout(panel_precios);
         panel_precios.setLayout(panel_preciosLayout);
@@ -81,40 +80,34 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
             .addGap(0, 167, Short.MAX_VALUE)
         );
 
+        numOrdenTXT.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        numOrdenTXT.setText("jLabel4");
+
         javax.swing.GroupLayout panelresumenLayout = new javax.swing.GroupLayout(panelresumen);
         panelresumen.setLayout(panelresumenLayout);
         panelresumenLayout.setHorizontalGroup(
             panelresumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelresumenLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(40, 40, 40)
                 .addGroup(panelresumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelresumenLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(panelresumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(panelresumenLayout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6))
-                            .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel2))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numOrdenTXT))
+                    .addComponent(jLabel3)
+                    .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
         panelresumenLayout.setVerticalGroup(
             panelresumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelresumenLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelresumenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(numOrdenTXT))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(panel_precios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -130,6 +123,13 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
             }
         });
 
+        mostrar_btn.setText("mostrar");
+        mostrar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrar_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,7 +137,11 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(panelresumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(mostrar_btn)
+                            .addGap(27, 27, 27)
+                            .addComponent(panelresumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(200, 200, 200)
@@ -157,8 +161,13 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelresumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelresumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(mostrar_btn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -184,16 +193,19 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
         this.refrescarPanel(new Menu(c).getPanel(), jPanel1);
     }//GEN-LAST:event_btn_volverActionPerformed
 
+    private void mostrar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_btnActionPerformed
+        this.imprimirDatos();
+    }//GEN-LAST:event_mostrar_btnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mostrar_btn;
+    private javax.swing.JLabel numOrdenTXT;
     private javax.swing.JPanel panel_precios;
     private javax.swing.JPanel panelresumen;
     // End of variables declaration//GEN-END:variables
@@ -209,5 +221,18 @@ public class Boleta extends javax.swing.JFrame implements ControladorPaneles{
         bg.add(panel);
         bg.revalidate();
         bg.repaint();
+    }
+    
+    private void imprimirDatos(){
+        System.out.println(usuario.getNombre() + "\n" + usuario.getApellido() + "\n" + usuario.getRut() + "\n" + usuario.getCorreo() + "\n" + usuario.getDireccion() + "\n" + usuario.getNumeroTelefono());
+        System.out.println(datosTarjeta.getNumeroTarjeta() + "\n" + datosTarjeta.getFechaVencimiento() + "\n" + datosTarjeta.getCvv());
+    }
+    
+    private int ordenAleatoria(){
+        Random random = new Random();
+        int min = 1000;
+        int max = 10000;
+
+        return random.nextInt(max + min) + min;
     }
 }
